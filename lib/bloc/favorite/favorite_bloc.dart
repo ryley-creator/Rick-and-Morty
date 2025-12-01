@@ -39,16 +39,14 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   ) async {
     final char = event.char;
 
-    // Update Hive repo
     if (favoriteRepo.isFavorite(char.id)) {
       favoriteRepo.removeFavorite(char.id);
     } else {
       favoriteRepo.addFavorite(char.id);
     }
 
-    // Emit updated state so UI rebuilds
     final favIds = favoriteRepo.getFavorites();
-    final allChars = charRepo.loadAllPages(); // load all cached chars
+    final allChars = charRepo.loadAllPages();
     final updatedFavorites = allChars
         .where((c) => favIds.contains(c.id))
         .toList();
