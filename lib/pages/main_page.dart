@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task/bloc/char/char_bloc.dart';
+import 'package:task/bloc/theme/theme_bloc.dart';
 import 'package:task/widgets/char_card.dart';
 
 class MainPage extends StatefulWidget {
@@ -34,6 +35,14 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(Icons.brightness_6),
+            onPressed: () {
+              context.read<ThemeBloc>().add(ToggleThemeEvent());
+            },
+          ),
+        ],
         title: Text('Characters'),
         scrolledUnderElevation: 0,
         backgroundColor: Colors.transparent,

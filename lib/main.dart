@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:task/bloc/char/char_bloc.dart';
 import 'package:task/bloc/favorite/favorite_bloc.dart';
+import 'package:task/bloc/theme/theme_bloc.dart';
 import 'package:task/database/char_repo.dart';
 import 'package:task/database/favorite_repo.dart';
 import 'package:task/pages/home_nav.dart';
@@ -17,6 +18,7 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
+        BlocProvider(create: (_) => ThemeBloc()),
         BlocProvider(create: (_) => CharBloc()..add(CharFetched())),
         BlocProvider(
           create: (_) =>
@@ -34,6 +36,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeNav(), debugShowCheckedModeBanner: false);
+    return BlocBuilder<ThemeBloc, ThemeState>(
+      builder: (context, state) {
+        return MaterialApp(
+          home: HomeNav(),
+          debugShowCheckedModeBanner: false,
+          themeMode: state.themeMode,
+          theme: ThemeData.light(),
+          darkTheme: ThemeData.dark(),
+        );
+      },
+    );
   }
 }
