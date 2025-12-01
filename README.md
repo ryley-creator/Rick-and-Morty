@@ -32,11 +32,13 @@ flutter run
 5. Важно: Для работы с Hive необходимо инициализировать его в main.dart перед запуском приложения:
 await Hive.initFlutter();
 
-Версии
+Версии:
 Flutter: 3.9.2
+
 Dart: 3.9.2
 
-Основные зависимости
+Основные зависимости:
+
 bloc: ^9.1.0 — управление состоянием
 
 flutter_bloc: ^9.1.1 — интеграция BLoC с Flutter
@@ -44,20 +46,31 @@ flutter_bloc: ^9.1.1 — интеграция BLoC с Flutter
 dio: ^5.9.0 — работа с API
 
 hive: ^2.2.3 — локальное хранилище данных
+
 hive_flutter: ^1.1.0 — адаптация Hive для Flutter
+
 path_provider: ^2.0.0 — путь для хранения файлов
+
 cached_network_image: ^3.2.3 — кэширование изображений
+
 equatable: ^2.0.7 — удобное сравнение объектов
 
 Структура проекта
+
 lib/blocs/ — BLoC для персонажей и избранного
+
 lib/models/ — модели данных (CharModel)
+
 lib/repositories/ — работа с API и Hive
+
 lib/pages/ — страницы UI (FavoritesPage, MainPage)
+
 lib/widgets/ — переиспользуемые виджеты (CharCard)
+
 main.dart — точка входа в приложение
 
-Сортировка избранного
+Сортировка избранного:
 
 Кнопки для сортировки по ID и по имени
+
 По умолчанию сортировка — по ID
