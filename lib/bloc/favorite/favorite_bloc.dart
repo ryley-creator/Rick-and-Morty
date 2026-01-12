@@ -13,22 +13,6 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   final FavoriteFirestoreRepo favoriteRepo;
   final CharDatabase charRepo;
 
-  // Future<void> onLoadFavorites(
-  //   FavoritesLoaded event,
-  //   Emitter<FavoriteState> emit,
-  // ) async {
-  //   emit(state.copyWith(status: FavoriteStatus.loading));
-
-  //   final favIds = favoriteRepo.getFavorites();
-  //   final allChars = charRepo.loadAllPages();
-
-  //   final favorites = allChars
-  //       .where((char) => favIds.contains(char.id))
-  //       .toList();
-
-  //   emit(state.copyWith(favorites: favorites, status: FavoriteStatus.loaded));
-  // }
-
   Future<void> onLoadFavorites(
     FavoritesLoaded event,
     Emitter<FavoriteState> emit,

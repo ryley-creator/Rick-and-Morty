@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:task/tools/char_api_service.dart';
-import 'package:task/tools/char_repository.dart';
+import 'package:task/tools/char/char_api_service.dart';
+import 'package:task/tools/char/char_repository.dart';
 
 import 'imports/imports.dart';
 

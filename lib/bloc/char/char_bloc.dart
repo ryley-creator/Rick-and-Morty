@@ -1,6 +1,5 @@
-import 'package:dio/dio.dart';
 import 'package:task/imports/imports.dart';
-import 'package:task/tools/char_repository.dart';
+import 'package:task/tools/char/char_repository.dart';
 part 'char_event.dart';
 part 'char_state.dart';
 
@@ -11,23 +10,6 @@ class CharBloc extends Bloc<CharEvent, CharState> {
   }
 
   final CharRepository repository;
-
-  Future<Map<String, dynamic>> fetchChars({int page = 1}) async {
-    try {
-      final url = "https://rickandmortyapi.com/api/character?page=$page";
-      final dio = Dio();
-      final response = await dio.get(url);
-
-      final data = response.data;
-      final List results = data['results'];
-      final totalPages = data['info']['pages'];
-
-      final chars = results.map((e) => CharModel.fromJson(e)).toList();
-      return {'chars': chars, 'totalPages': totalPages};
-    } on DioException catch (error) {
-      throw Exception('Error: $error');
-    }
-  }
 
   Future<void> onFetchChars(CharFetched event, Emitter<CharState> emit) async {
     emit(state.copyWith(status: CharStatus.loading));

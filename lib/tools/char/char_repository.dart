@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 import 'package:task/models/char_model.dart';
-import 'package:task/tools/char_api_service.dart';
+import 'package:task/tools/char/char_api_service.dart';
 
 sealed class Result<T> {}
 
