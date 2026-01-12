@@ -20,7 +20,7 @@
 
 1. Клонировать проект:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/ryley-creator/Rick-and-Morty.git
 ```
 2. Перейти в папку проекта:
 ```bash
