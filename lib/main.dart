@@ -1,3 +1,7 @@
+import 'package:dio/dio.dart';
+import 'package:task/tools/char_api_service.dart';
+import 'package:task/tools/char_repository.dart';
+
 import 'imports/imports.dart';
 
 void main() async {
@@ -7,12 +11,17 @@ void main() async {
   await Hive.openBox('chars');
   await Hive.openBox('theme');
   final favoriteRepo = FavoriteFirestoreRepo();
-  final charRepo = CharRepo();
+  final charRepo = CharDatabase();
+  final dio = Dio();
+  final box = Hive.box('chars');
+  final api = CharApiService(dio);
+  final repo = CharRepositoryImpl(api, box);
+
   runApp(
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => ThemeBloc()),
-        BlocProvider(create: (_) => CharBloc()..add(CharFetched())),
+        BlocProvider(create: (_) => CharBloc(repo)..add(CharFetched())),
         BlocProvider(
           create: (_) =>
               FavoriteBloc(charRepo: charRepo, favoriteRepo: favoriteRepo)

@@ -11,7 +11,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     on<FavoritesLoaded>(onLoadFavorites);
   }
   final FavoriteFirestoreRepo favoriteRepo;
-  final CharRepo charRepo;
+  final CharDatabase charRepo;
 
   // Future<void> onLoadFavorites(
   //   FavoritesLoaded event,

@@ -1,6 +1,6 @@
 import 'package:task/imports/imports.dart';
 
-class CharRepo {
+class CharDatabase {
   final box = Hive.box('chars');
 
   List<CharModel> loadAllPages() {
