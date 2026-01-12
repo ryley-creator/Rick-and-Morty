@@ -1,12 +1,7 @@
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:task/models/char_model.dart';
+import 'package:task/imports/imports.dart';
 
 class CharRepo {
   final box = Hive.box('chars');
-
-  void savePage() {}
-
-  loadPage() {}
 
   List<CharModel> loadAllPages() {
     final result = <CharModel>[];

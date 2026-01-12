@@ -1,7 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:task/models/char_model.dart';
+import 'package:task/imports/imports.dart';
 part 'char_event.dart';
 part 'char_state.dart';
 

@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:task/pages/favorite_page.dart';
-import 'package:task/pages/main_page.dart';
+import 'package:task/imports/imports.dart';
 
 class HomeNav extends StatefulWidget {
   const HomeNav({super.key});
@@ -12,7 +10,7 @@ class HomeNav extends StatefulWidget {
 class _HomeNavState extends State<HomeNav> {
   int currentIndex = 0;
 
-  final List<Widget> pages = [MainPage(), FavoritesPage()];
+  final List<Widget> pages = [MainPage(), FavoritesPage(), SettingsPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +27,10 @@ class _HomeNavState extends State<HomeNav> {
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       ),

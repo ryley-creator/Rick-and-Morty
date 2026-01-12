@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task/bloc/favorite/favorite_bloc.dart';
-import 'package:task/models/char_model.dart';
-import 'package:task/widgets/char_card.dart';
+import 'package:task/imports/imports.dart';
 
 class FavoritesPage extends StatefulWidget {
   const FavoritesPage({super.key});

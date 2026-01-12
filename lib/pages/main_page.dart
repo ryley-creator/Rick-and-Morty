@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task/bloc/char/char_bloc.dart';
-import 'package:task/bloc/theme/theme_bloc.dart';
-import 'package:task/widgets/char_card.dart';
+import 'package:task/imports/imports.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

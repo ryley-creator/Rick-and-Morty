@@ -1,9 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:task/bloc/favorite/favorite_bloc.dart';
-import 'package:task/models/char_model.dart';
+import 'package:task/imports/imports.dart';
 
 class CharCard extends StatelessWidget {
   const CharCard({super.key, required this.char});
@@ -83,7 +78,10 @@ class CharCard extends StatelessWidget {
                           child: IconButton(
                             onPressed: () {
                               context.read<FavoriteBloc>().add(
-                                FavoriteToggled(char),
+                                FavoriteToggled(
+                                  char,
+                                  FirebaseAuth.instance.currentUser!.uid,
+                                ),
                               );
                             },
                             icon: Icon(

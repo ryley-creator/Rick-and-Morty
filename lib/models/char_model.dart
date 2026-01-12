@@ -1,5 +1,5 @@
 class CharModel {
-  final int id;
+  final String id;
   final String name;
   final String status;
   final String species;
@@ -18,7 +18,7 @@ class CharModel {
   });
 
   factory CharModel.fromJson(Map<String, dynamic> data) => CharModel(
-    id: data['id'],
+    id: data['id'].toString(),
     name: data['name'],
     status: data['status'],
     species: data['species'],
@@ -36,7 +36,7 @@ class CharModel {
   };
 
   CharModel copyWith({
-    int? id,
+    String? id,
     String? name,
     String? gender,
     String? status,
